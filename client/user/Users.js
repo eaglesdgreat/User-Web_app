@@ -5,11 +5,10 @@ import List, {ListItem, ListItemAvatar, ListItemText, ListItemSecondaryAction} f
 import Typography from 'material-ui/Typography'
 import {Link} from 'react-router-dom'
 import { Avatar, withStyles } from 'material-ui'
-import {Person} from 'material-ui'
+import Person from 'material-ui-icons/Person'
 import IconButton from 'material-ui/IconButton'
-import {ArrowForword} from 'material-ui'
+import ArrowForword from 'material-ui-icons/ArrowForward'
 import PropTypes from 'prop-types'
-import {withStyles} from 'material-ui/styles'
 
 const styles = theme => ({
     root: theme.mixins.gutters({
@@ -44,7 +43,7 @@ class Users extends React.Component {
                 <Typography type="title" className={classes.title}>All Users</Typography>
                 <List dense>
                     {users.map(function (item, i) {
-                        <Link to={"/user/" + item._id} key={i}>
+                        <Link to={"/users/" + item._id} key={i}>
                             <ListItem button="button">
                                 <ListItemAvatar>
                                     <Avatar>
