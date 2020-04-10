@@ -1,6 +1,7 @@
 import React from 'react'
 import {Route, Switch} from 'react-router-dom'
 import Home from './core/Home'
+import User from './user/User'
 
 class MainRouter extends React.Component {
     render() {
@@ -8,6 +9,7 @@ class MainRouter extends React.Component {
             <div>
                 <Switch>
                     <Route exact path="/" component={Home}/>
+                    <Route path="/user" component={Users}/>
                 </Switch>
             </div>
         )
