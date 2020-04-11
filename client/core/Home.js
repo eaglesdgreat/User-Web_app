@@ -33,7 +33,8 @@ class Home extends React.Component {
                         <Typography type="body1" component="p">Welcome To My Mock Shop Home Page</Typography>
                     </CardContent>
                 </Card>
-                <Link to={"/users/"}>Users</Link>
+                <Link to={"/users/"}>Users</Link><br/>
+                <Link to={"/signup"}>Sign Up</Link><br/>
             </div>
         )
     }
