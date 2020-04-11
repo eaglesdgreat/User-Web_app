@@ -34,7 +34,9 @@ class Home extends React.Component {
                     </CardContent>
                 </Card>
                 <Link to={"/users/"}>Users</Link><br/>
-                <Link to={"/signup"}>Sign Up</Link><br/>
+                <Link to={"/signup/"}>Sign Up</Link><br/>
+                <Link to={"/signin/"}>Sign In</Link><br/>
+                <Link to={"/user/:userId"}>Profile</Link><br/>
             </div>
         )
     }

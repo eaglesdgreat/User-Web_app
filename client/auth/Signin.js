@@ -48,6 +48,11 @@ class Signin extends React.Component {
         this.clickSubmit = this.clickSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
     }
+    
+    handleChange(event) {
+        this.setState({[name]: event.target.value})
+    }
+
     clickSubmit() {
         const user = {
             email: this.state.email || undefined,
@@ -63,10 +68,7 @@ class Signin extends React.Component {
             }
         })
     }
-    handleChange(event) {
-        const {value} = event.target
-        this.setState({[name]: value})
-    }
+
     render() {
         const {classes} = this.props
         const {from} = this.props.location.state || {from: {pathname: '/'}}
