@@ -1,5 +1,5 @@
 import React from 'react'
-import auth from '../auth/auth-helpers'
+import auth from './../auth/auth-helpers'
 import {read} from './api-user'
 import {Redirect, Link} from 'react-router-dom'
 import Paper from 'material-ui/Paper'
@@ -10,7 +10,7 @@ import Person from 'material-ui-icons/Person'
 import Divider from 'material-ui/Divider'
 import IconButton from 'material-ui/IconButton'
 import Edit from 'material-ui-icons/Edit'
-//import DeleteUser from './DeleteUser'
+import DeleteUser from './DeleteUser'
 import {withStyle} from 'material-ui/styles'
 import PropTypes from 'prop-types'
 
@@ -35,11 +35,12 @@ class Profile extends React.Component {
             redirectToSignIn: false
         }
         this.match = match
+        this.init = this.init.bind(this)
     }
 
     init(userId) {
         const jwt = auth.isAuthenticated()
-        read({userId}, {t: jwt.token}).then((data) => {
+        read({userId: userId}, {t: jwt.token}).then((data) => {
             if(data.error) {
                 this.setState({redirectToSignIn: true})
             }else{
@@ -48,8 +49,8 @@ class Profile extends React.Component {
         })
     }
 
-    componentWillReceiveProps() {
-        this.init(this.props.match.params.userId)
+    componentWillReceiveProps(props) {
+        this.init(props.match.params.userId)
     }
 
     componentDidMount() {

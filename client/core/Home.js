@@ -4,7 +4,6 @@ import {withStyles} from 'material-ui/styles'
 import Card, { CardContent, CardMedia } from 'material-ui/Card'
 import Typography from 'material-ui/Typography'
 import seaShellImg from './../assets/images/seashell.jpg'
-import {Link} from 'react-router-dom'
 
 const styles = theme => ({
     card: {
@@ -33,10 +32,6 @@ class Home extends React.Component {
                         <Typography type="body1" component="p">Welcome To My Mock Shop Home Page</Typography>
                     </CardContent>
                 </Card>
-                <Link to={"/users/"}>Users</Link><br/>
-                <Link to={"/signup/"}>Sign Up</Link><br/>
-                <Link to={"/signin/"}>Sign In</Link><br/>
-                <Link to={"/user/:userId"}>Profile</Link><br/>
             </div>
         )
     }
