@@ -46,11 +46,8 @@ class Signin extends React.Component {
             redirectToReferer: false
         }
         this.clickSubmit = this.clickSubmit.bind(this)
-        this.handleChange = this.handleChange.bind(this)
-    }
-    
-    handleChange(event) {
-        this.setState({[name]: event.target.value})
+        this.handleChange = this.handleChangeEmail.bind(this)
+        this.handleChange = this.handleChangePassword.bind(this)
     }
 
     clickSubmit() {
@@ -58,6 +55,7 @@ class Signin extends React.Component {
             email: this.state.email || undefined,
             password: this.state.password || undefined
         }
+        
         signin(user).then((data) => {
             if(data.error) {
                 this.setState({error: data.error})
@@ -67,6 +65,14 @@ class Signin extends React.Component {
                 })
             }
         })
+    }
+
+    handleChangeEmail(event) {
+        this.setState({email: event.target.value});
+    }
+
+    handleChangePassword(event) {
+        this.setState({password: event.target.value});
     }
 
     render() {
@@ -79,18 +85,17 @@ class Signin extends React.Component {
         return (
             <Card className={classes.card}>
                 <CardContent>
-                    <Typography type="headline" component="h2" className={classes.title}>
-                        <TextField id="email" label="Email" type="email" value={this.state.email} onChange={this.handleChange('email')}
+                    <Typography type="headline" component="h1" className={classes.title}>Sign In</Typography>
+                        <TextField id="email" label="Email" type="email" value={this.state.email} onChange={this.handleChangeEmail}
                             className={classes.textField} margin="normal"/><br/>
-                        <TextField id="password" lable="Password" type="password" value={this.state.password} onChange={this.handleChange('password')}
+                        <TextField id="password" label="Password" type="password" value={this.state.password} onChange={this.handleChangePassword}
                             className={classes.textField} margin="normal"/><br/>
                         {this.state.error && (<Typography component="p" color="error">
                             <Icon color="error" className={classes.error}>error</Icon>
                         </Typography> )}
-                    </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button color="primary" variant="raised" onClick={this.clickSubmit} className={classes.submit}/>
+                    <Button color="primary" variant="raised" onClick={this.clickSubmit} className={classes.submit}>Submit</Button>
                 </CardActions>
             </Card>
         )

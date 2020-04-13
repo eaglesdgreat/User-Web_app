@@ -1,7 +1,6 @@
 import React from 'react'
 import auth from './../auth/auth-helpers'
 import {remove} from './api-user'
-import {signout} from './../auth/api-auth'
 import {Redirect} from 'react-router-dom'
 import IconButton from 'material-ui/IconButton' 
 import DeleteIcon from 'material-ui-icons/Delete'
@@ -18,6 +17,7 @@ class DeleteUser extends React.Component {
         }
         this.clickButton = this.clickButton.bind(this)
         this.handleRequestClose = this.handleRequestClose.bind(this)
+        this.deleteAccount = this.deleteAccount.bind(this)
     }
 
     clickButton() {
@@ -34,7 +34,7 @@ class DeleteUser extends React.Component {
             if(data.error) {
                 console.log(data.error)
             }else{
-                signout(() => console.log('deleted'))
+                auth.signout(() => console.log('deleted'))
                 this.setState({redirect: true})
             }
         })
