@@ -27,7 +27,12 @@ const config = {
                 use:{
                     loader: "babel-loader",
                 }
-            }
+            },{
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                use:{
+                    loader: "file-loader?name=client/assets/images/[name].[ext]"
+                }
+            },
         ]
     }
 }
