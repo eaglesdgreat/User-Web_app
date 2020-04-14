@@ -51,18 +51,6 @@ class Signup extends React.Component {
         this.handleChange = this.handleChangePassword.bind(this)
         this.clickSubmit = this.clickSubmit.bind(this)
     }
-
-    handleChangeName(event) {
-        this.setState({name: event.target.value})
-    }
-
-    handleChangeEmail(event) {
-        this.setState({email: event.target.value})
-    }
-
-    handleChangePassword(event) {
-        this.setState({password: event.target.value})
-    }
     
     clickSubmit() {
         const user = {
@@ -80,29 +68,42 @@ class Signup extends React.Component {
         })
     }
 
+    handleChangeName(event) {
+        this.setState({name: event.target.value})
+    }
+
+    handleChangeEmail(event) {
+        this.setState({email: event.target.value})
+    }
+
+    handleChangePassword(event) {
+        this.setState({password: event.target.value})
+    }
+
     render() {
         const {classes} = this.props 
+        const {name, email, password, error, open} = this.state
         return (
             <div>
                 <Card className={classes.card}>
                     <CardContent>
                         <Typography type="headline" component="h1" className={classes.title}>Sign Up</Typography>
-                        <TextField id="name" label="Name" className={classes.textField} value={this.state.name} onChange={this.handleChangeName}
-                            margin="normal"/><br/>
-                        <TextField id="email" label="Email" type="email" className={classes.textField} value={this.state.email} 
-                            onChange={this.handleChangeEmail} marginTop="normal"/><br/>
-                        <TextField id="password" label="Password" type="password" className={classes.textField} value={this.state.password}
-                            onChange={this.handleChangePassword} margin=" normal"/><br/>
-                        {this.state.error && ( <Typography component="p" color="error">
-                            <Icon color="error" className={classes.error}>error</Icon>
-                            {this.state.error}
-                        </Typography>)}
+                            <TextField id="name" label="Name" className={classes.textField} value={name} onChange={this.handleChangeName}
+                                margin="normal"/><br/>
+                            <TextField id="email" label="Email" type="email" className={classes.textField} value={email} 
+                                onChange={this.handleChangeEmail} margin="normal"/><br/>
+                            <TextField id="password" label="Password" type="password" className={classes.textField} value={password}
+                                onChange={this.handleChangePassword} margin="normal"/><br/>
+                            {this.state.error && ( <Typography component="p" color="error">
+                                <Icon color="error" className={classes.error}>error</Icon>
+                                {error}
+                            </Typography>)}
                     </CardContent>
                     <CardActions>
                         <Button color="primary" raised="raised" onClick={this.clickSubmit} className={classes.submit}>Submit</Button>
                     </CardActions>
                 </Card>
-                <Dialog open={this.state.open} disableBackDropClick={true}>
+                <Dialog open={open} disableBackDropClick={true}>
                     <DialogTitle>New Account</DialogTitle>
                     <DialogContent>
                         <DialogContentText>New Account Successfully Created</DialogContentText>

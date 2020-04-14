@@ -24,7 +24,7 @@ class MainRouter extends React.Component {
                 <Switch>
                     <Route exact path="/" component={Home}/>
                     <Route path="/users" component={Users}/>
-                    <Route path="/singup" component={Signup}/>
+                    <Route path="/signup" component={Signup}/>
                     <Route path="/signin" component={Signin}/>
                     <PrivateRoute path="/user/edit/:userId" component={EditProfile}/>
                     <Route path="/user/:userId" component={Profile}/>
