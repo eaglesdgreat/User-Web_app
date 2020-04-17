@@ -1,7 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
 const nodeExternals = require('webpack-node-externals')
-//const __dirname = process.cwd()
 
 const config = {
     name: "server",
@@ -27,7 +26,8 @@ const config = {
                 use:{
                     loader: "babel-loader",
                 }
-            },{
+            },
+            {
                 test: /\.(jpe?g|png|gif|svg)$/i,
                 use:{
                     loader: "file-loader?name=client/assets/images/[name].[ext]"

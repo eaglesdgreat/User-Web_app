@@ -5,7 +5,7 @@ const router = express.Router()
 
 router.route('/auth/signin')
     .post(authControl.signin)
-router.route('auth/signout')
+router.route('/auth/signout')
     .get(authControl.signout)
 
 export default router

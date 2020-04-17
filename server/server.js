@@ -1,7 +1,6 @@
 import mongoose from 'mongoose'
 //import path from 'path'
 
-//import template from './../template'
 import config from './../config/config'
 import app from './express'
 

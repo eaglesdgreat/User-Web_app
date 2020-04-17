@@ -10,7 +10,7 @@ router.route('/api/users')
 
 router.route('/api/users/:userId')
     .get(authControl.requireSignin, userControl.read)
-    .post(authControl.requireSignin, authControl.hasAuthorization, userControl.update)
+    .put(authControl.requireSignin, authControl.hasAuthorization, userControl.update)
     .delete(authControl.requireSignin, authControl.hasAuthorization, userControl.remove)
 
 router.param('userId', userControl.userByID)

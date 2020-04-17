@@ -7,7 +7,8 @@
     "development": "webpack --mode development --config webpack.config.client.js && nodemon",
     "build": "webpack --config webpack.config.client.production.js && webpack --mode=production --config webpack.config.server.js",
     "start": "NODE_ENV=production node ./dist/server.generated.js",
-    "parcel": "parcel -p 3060 index.html"
+    "parcel": "parcel -p 3060 index.html",
+    "lint": "./node_modules/.bin/eslint --init"
   },
   "keywords": [
     "NodeJS",
@@ -55,6 +56,12 @@
     "@hot-loader/react-dom": "^16.13.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.1",
     "file-loader": "^6.0.0",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.0.4",

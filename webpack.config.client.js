@@ -12,7 +12,7 @@ const config = {
         './client/main.js'
     ],
     output: {
-        path: path.join(__dirname, 'dist'),
+        path: path.join(__dirname, '/dist'),
         publicPath: '/',
         filename: 'bundle.js'
     },
@@ -38,7 +38,7 @@ const config = {
                 use:{
                     loader: "html-loader"
                 }
-            }
+            } 
         ]
     },
     resolve: {
@@ -50,8 +50,8 @@ const config = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new HtmlWebpackPlugin({
-            template: './index.html', //the template is the source where the html file is located
-            filename: './index.html',
+            template: './dist/index.html', //the template is the source where the html file is located
+            filename: 'index.html',
             excludeChunks: ['server']
         })
     ]

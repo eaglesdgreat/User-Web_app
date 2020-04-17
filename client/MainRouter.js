@@ -10,13 +10,6 @@ import EditProfile from './user/EditProfile'
 import Menu from './core/Menu'
 
 class MainRouter extends React.Component {
-    componentDidMount(){
-        const jssStyles = document.getElementById('jss-server-side')
-        if(jssStyles && jssStyles.parentNode) {
-            jssStyles.parentNode.removeChild(jssStyles)
-        }
-    }
-    
     render() {
         return (
             <div>
