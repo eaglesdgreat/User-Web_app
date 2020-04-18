@@ -46,9 +46,9 @@ class Signup extends React.Component {
             erorr: '',
             open: false
         }
-        this.handleChange = this.handleChangeName.bind(this)
-        this.handleChange = this.handleChangeEmail.bind(this)
-        this.handleChange = this.handleChangePassword.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+        // this.handleChange = this.handleChangeEmail.bind(this)
+        // this.handleChange = this.handleChangePassword.bind(this)
         this.clickSubmit = this.clickSubmit.bind(this)
     }
     
@@ -68,17 +68,17 @@ class Signup extends React.Component {
         })
     }
 
-    handleChangeName(event) {
-        this.setState({name: event.target.value})
+    handleChange(event) {
+        this.setState({[name]: event.target.value})
     }
 
-    handleChangeEmail(event) {
-        this.setState({email: event.target.value})
-    }
+    // handleChange(event) {
+    //     this.setState({[name]: event.target.value})
+    // }
 
-    handleChangePassword(event) {
-        this.setState({password: event.target.value})
-    }
+    // handleChange(event) {
+    //     this.setState({[name]: event.target.value})
+    // }
 
     render() {
         const {classes} = this.props 
@@ -88,19 +88,19 @@ class Signup extends React.Component {
                 <Card className={classes.card}>
                     <CardContent>
                         <Typography type="headline" component="h1" className={classes.title}>Sign Up</Typography>
-                            <TextField id="name" label="Name" className={classes.textField} value={name} onChange={this.handleChangeName}
+                            <TextField id="name" label="Name" className={classes.textField} value={name} onChange={this.handleChange}
                                 margin="normal"/><br/>
-                            <TextField id="email" label="Email" type="email" className={classes.textField} value={email} 
-                                onChange={this.handleChangeEmail} margin="normal"/><br/>
+                            <TextField id="email" label="Email" type="email" className={classes.textField} value={email}
+                                onChange={this.handleChange} margin="normal"/><br/>
                             <TextField id="password" label="Password" type="password" className={classes.textField} value={password}
-                                onChange={this.handleChangePassword} margin="normal"/><br/>
+                                onChange={this.handleChange} margin="normal"/><br/>
                             {this.state.error && ( <Typography component="p" color="error">
                                 <Icon color="error" className={classes.error}>error</Icon>
                                 {error}
                             </Typography>)}
                     </CardContent>
                     <CardActions>
-                        <Button color="primary" raised="raised" onClick={this.clickSubmit} className={classes.submit}>Submit</Button>
+                        <Button color="primary" variant="raised" onClick={this.clickSubmit} className={classes.submit}>Submit</Button>
                     </CardActions>
                 </Card>
                 <Dialog open={open} disableBackDropClick={true}>

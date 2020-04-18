@@ -50,7 +50,7 @@ const config = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new HtmlWebpackPlugin({
-            template: './dist/index.html', //the template is the source where the html file is located
+            template: './views/index.html', //the template is the source where the html file is located
             filename: 'index.html',
             excludeChunks: ['server']
         })

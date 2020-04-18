@@ -10,7 +10,7 @@ mongoose.connect(config.mongoUri, { useNewUrlParser: true }).then(conn => conn).
 // const HTML = path.join(__dirname, 'index.html')
 
 // app.get('/', (req, res) => {
-//     res.status(200).sendFile(HTML)
+//     res.status(200).send('Hello')
 // })
 
 app.listen(config.port, () => {

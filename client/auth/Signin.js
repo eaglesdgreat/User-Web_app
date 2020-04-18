@@ -46,8 +46,7 @@ class Signin extends React.Component {
             redirectToReferer: false
         }
         this.clickSubmit = this.clickSubmit.bind(this)
-        this.handleChange = this.handleChangeEmail.bind(this)
-        this.handleChange = this.handleChangePassword.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
 
     clickSubmit() {
@@ -57,8 +56,8 @@ class Signin extends React.Component {
         }
         
         signin(user).then((data) => {
-            if(data.error) {
-                this.setState({error: data.error})
+            if(!data) {
+                this.setState({error: true})
             }else{
                 auth.authenticate(data, () => {
                     this.setState({redirectToReferer: true})
@@ -67,13 +66,13 @@ class Signin extends React.Component {
         })
     }
 
-    handleChangeEmail(event) {
-        this.setState({email: event.target.value});
+    handleChange(event) {
+        this.setState({[name]: event.target.value});
     }
 
-    handleChangePassword(event) {
-        this.setState({password: event.target.value});
-    }
+    // handleChange(event) {
+    //     this.setState({[name]: event.target.value});
+    // }
 
     render() {
         const {classes} = this.props
@@ -86,9 +85,9 @@ class Signin extends React.Component {
             <Card className={classes.card}>
                 <CardContent>
                     <Typography type="headline" component="h1" className={classes.title}>Sign In</Typography>
-                        <TextField id="email" label="Email" type="email" value={this.state.email} onChange={this.handleChangeEmail}
+                        <TextField id="email" label="Email" type="email" value={this.state.email} onChange={this.handleChange}
                             className={classes.textField} margin="normal"/><br/>
-                        <TextField id="password" label="Password" type="password" value={this.state.password} onChange={this.handleChangePassword}
+                        <TextField id="password" label="Password" type="password" value={this.state.password} onChange={this.handleChange}
                             className={classes.textField} margin="normal"/><br/>
                         {this.state.error && (<Typography component="p" color="error">
                             <Icon color="error" className={classes.error}>error</Icon>

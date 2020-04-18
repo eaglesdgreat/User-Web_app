@@ -1,7 +1,11 @@
-import User from './../models/user.model'
-import jwt from 'jsonwebtoken'
-import expressJwt from 'express-jwt'
-import config from './../../config/config'
+// import User from './../models/user.model'
+// import jwt from 'jsonwebtoken'
+// import expressJwt from 'express-jwt'
+// import config from './../../config/config'
+const User = require('./../models/user.model')
+const jwt = require('jsonwebtoken')
+const expressJwt = require('express-jwt')
+const config = require('./../../config/config')
 
 const signin = (req, res) => {
     User.findOne({
@@ -51,4 +55,4 @@ const hasAuthorization = (req, res, next) => {
     next()
 }
 
-export default {signin, signout, requireSignin, hasAuthorization}
+module.exports = {signin, signout, requireSignin, hasAuthorization}
