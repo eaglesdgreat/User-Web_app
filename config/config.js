@@ -5,4 +5,4 @@ const config = {
     mongoUri: process.env.MOMGODB_URI || 'mongodb://localhost:27017/store'
 }
 
-module.exports = config
+export default config

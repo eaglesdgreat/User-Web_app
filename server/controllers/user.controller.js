@@ -1,9 +1,6 @@
-// import User from './../models/user.model'
-// import _ from 'lodash'
-// import errorHandler from './../helpers/dbErrorHandler'
-const User = require('./../models/user.model')
-const _ = require('lodash')
-const errorHandler = require('./../helpers/dbErrorHandler')
+import User from './../models/user.model'
+import _ from 'lodash'
+import errorHandler from './../helpers/dbErrorHandler'
 
 const create = (req, res, next) => {
     const user = new User(req.body)
@@ -77,4 +74,4 @@ const remove = (req, res, next) => {
     })
 }
 
-module.exports = {create, list, read, userByID, update, remove}
+export default {create, list, read, userByID, update, remove}

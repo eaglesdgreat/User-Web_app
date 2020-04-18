@@ -38,7 +38,7 @@ app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
 app.set('views', path.join(__dirname,'views'));
 app.set('view engine', 'html');
 
-//const index = path.join(CURRENT_WORKING_DIR, 'view/index.html')
+const index = path.join(CURRENT_WORKING_DIR, 'views/index.html')
 const Router = React.createFactory(MainRouter)
 
 //Mounting routes with express
@@ -68,17 +68,17 @@ app.use('*', (req, res) => {
     }
     const css = sheetsRegistry.toString()
 
-    // const html = fs.readFile(index, 'utf-8', (err, data) => {
-    //     if(err) {
-    //         console.error('error when reading the file ', err)
-    //         res.status(500).send('error when reading index file')
-    //     }
-    //     data = data.replace('<div id="root"></div>', `<div id="root">${markup}</div>`)
-    //     data = data.replace('<style id="jss-server-side"></style>', `<style id="jss-server-side">${css}</style>`)
-    //     return data
-    // })
+    const html = fs.readFile(index, 'utf-8', (err, data) => {
+        if(err) {
+            console.error('error when reading the file ', err)
+            res.status(500).send('error when reading index file')
+        }
+        data = data.replace('<div id="root"></div>', `<div id="root">${markup}</div>`)
+        data = data.replace('<style id="jss-server-side"></style>', `<style id="jss-server-side">${css}</style>`)
+        return data
+    })
 
-    // res.status(200).send('Hello World')
+    res.status(200).send(html)
 })
 
 //Handling unauthorized errors with express
