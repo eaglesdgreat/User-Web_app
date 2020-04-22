@@ -4,7 +4,8 @@ import Paper from 'material-ui/Paper'
 import List, {ListItem, ListItemAvatar, ListItemText, ListItemSecondaryAction} from 'material-ui/List'
 import Typography from 'material-ui/Typography'
 import {Link} from 'react-router-dom'
-import { Avatar, withStyles } from 'material-ui'
+import { Avatar } from 'material-ui'
+import { withStyles } from 'material-ui/styles'
 import Person from 'material-ui-icons/Person'
 import IconButton from 'material-ui/IconButton'
 import ArrowForword from 'material-ui-icons/ArrowForward'
@@ -43,8 +44,8 @@ class Users extends React.Component {
                 <Typography type="title" className={classes.title}>All Users</Typography>
                 <List dense>
                     {users.map(function (item, i) {
-                        <Link to={"/users/" + item._id} key={i}>
-                            <ListItem button="button">
+                        <Link to={"/user/" + item._id} key={i}>
+                            <ListItem button>
                                 <ListItemAvatar>
                                     <Avatar>
                                         <Person/>
